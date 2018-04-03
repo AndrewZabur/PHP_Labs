@@ -1,0 +1,54 @@
+.navbar-inverse {
+    background-color: black; 
+}
+.jumbotron {
+    margin: 0px auto;
+    padding: 70px 30px;
+    background: #272626;
+    color: rgb(240, 255, 240); 
+}
+.footer {
+    margin-bottom: 0;
+    background-color: #c6bbd9;
+    margin: 0px auto;
+    padding: 20px 0px; 
+}
+.row-header {
+    margin: 0px auto;
+    padding: 0px 0px;
+}
+  
+.row-content {
+    margin: 0px auto;
+    padding: 50px 0px;
+    border-bottom: 1px ridge;
+    min-height: 400px; 
+}
+.breadcrumb{
+    background: honeydew;
+}
+#registrationName{
+    padding-bottom: 20px;
+}
+#reg{
+    color: grey;
+}
+
+#registr :hover{
+    text-decoration: none; 
+    color: white;                         
+}
+
+#passed{
+   margin: 20px auto;
+}
+address {
+    font-size: 80%;
+    margin: 0px;
+    color: #0f0f0f;
+}
+ 
+body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}

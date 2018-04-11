@@ -45,22 +45,15 @@
     
     if($errors == ""){
         require_once("configuration/dbConfig.php");
-        $connection = mysqli_connect($host, $owner, $dbPassword, $dbName);
-        if ($connection)
-        {  
-            $login = $_POST['login']; 
-            $password = password_hash( $_POST['password'], PASSWORD_BCRYPT);
-            $email =  $_POST['emailid'];
-            $skype = $_POST['skype'];
+        $login = $_POST['login']; 
+        $password = password_hash( $_POST['password'], PASSWORD_BCRYPT);
+        $email =  $_POST['emailid'];
+        $skype = $_POST['skype'];
 
-            $query = "INSERT INTO users (userName, cryptedPassword, email, skype) VALUES 
-            ('$login', '$password', '$email', '$skype')";
-            mysqli_query($connection, $query);
-            mysqli_close($connection);
-        } else {
-            die("Connection failed to the db failed!");
-        }
-
+        $query = "INSERT INTO users (userName, cryptedPassword, email, skype) VALUES 
+        ('$login', '$password', '$email', '$skype')";
+        $connection->query($query);
+        $connection->close();
         header("Location: /myapp/index.php?action=passedValidation");
     } else{
         header("Location: /myapp/index.php?action=registration&errors=".$errors);

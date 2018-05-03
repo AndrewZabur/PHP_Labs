@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         require_once('./layout/header.php');
         require_once('./layout/navbar.php');

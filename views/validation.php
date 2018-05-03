@@ -1,8 +1,4 @@
 <?php
-    if($_SERVER['REQUEST_METHOD'] != "POST"){
-        header('Location: localhost/myapp/index.php');
-    }
-
     $errors = "";
     
     if($_POST['login'] == ""){

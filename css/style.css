@@ -27,12 +27,13 @@
 .breadcrumb{
     background: honeydew;
 }
-#registrationName{
+#registrationName, #signIn{
     padding-bottom: 20px;
 }
-#reg{
+
+#reg, #log-out, #log-in{
     color: grey;
-}
+} 
 
 #registr :hover{
     text-decoration: none; 
@@ -42,6 +43,7 @@
 #passed{
    margin: 20px auto;
 }
+
 address {
     font-size: 80%;
     margin: 0px;

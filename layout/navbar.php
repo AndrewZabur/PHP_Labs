@@ -7,9 +7,13 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="index.php?action=main"><span class="fa fa-home fa-lg"></span> Home</a></li>
             <li class="nav-item"><a class="nav-link" href="index.php?action=about"><span class="fa fa-info fa-lg"></span> About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?action=shop"><span class="fa fa-list fa-lg"></span> Shop</a></li>
             <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
-        
+            <?php
+                if(isset($_SESSION["id"])){
+                    echo '<li class="nav-item"><a class="nav-link" href="index.php?action=createProduct"><span class="fa fa-plus fa-lg"></span> Add goods</a></li>';
+                }
+            ?>
         </ul>
         <span class="navbar-text" id="registr">
             <?php

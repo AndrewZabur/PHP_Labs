@@ -12,6 +12,7 @@
             <?php
                 if(isset($_SESSION["id"])){
                     echo '<li class="nav-item"><a class="nav-link" href="index.php?action=createProduct"><span class="fa fa-plus fa-lg"></span> Add goods</a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="index.php?action=viewProfile"><span class="fa fa-user fa-lg"></span> View profile</a></li>';
                 }
             ?>
         </ul>

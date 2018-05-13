@@ -1,6 +1,24 @@
 <?php
     $errors = "";
     
+    if($_POST['firstName'] == ""){
+        $errors .= "emptyFirstName%";
+    } else if(!preg_match("/^[A-Z][a-z]{2,}([\-][A-Z][a-z]{2,}|)$/u", $_POST['firstName'])){
+        $errors .= "incorrectFirstName";
+    }
+
+    if($_POST['lastName'] == ""){
+        $errors .= "emptyLastName%";
+    } else if(!preg_match("/^[A-Z][a-z]{2,}([\-][A-Z][a-z]{2,}|)$/u", $_POST['lastName'])){
+        $errors .= "incorrectLastName";
+    }   
+
+    if($_POST['birthDate'] == ""){
+        $errors .= "emptyBirthDate%";
+    } else if(!preg_match("/^\d{4}[\-]\d{2}[\-]\d{2}$/", $_POST['birthDate'])){
+        $errors .= "incorrectBirthDate%";
+    }  
+    
     if($_POST['login'] == ""){
         $errors .= "emptyLogin%";
     } else if(!preg_match("/^[\d\w\-]{4,}$/u", $_POST['login'])){
@@ -41,13 +59,16 @@
     
     if($errors == ""){
         require_once("configuration/dbConfig.php");
+        $name = $_POST['firstName'];
+        $surname = $_POST['lastName'];
+        $birth = $_POST['birthDate'];
         $login = $_POST['login']; 
         $password = password_hash( $_POST['password'], PASSWORD_BCRYPT);
         $email =  $_POST['emailid'];
         $skype = $_POST['skype'];
 
-        $query = "INSERT INTO users (userName, cryptedPassword, email, skype) VALUES 
-        ('$login', '$password', '$email', '$skype')";
+        $query = "INSERT INTO users (firstName, lastName, birthDate, userName, cryptedPassword, email, skype) VALUES 
+        ('$name', '$surname', '$birth','$login', '$password', '$email', '$skype')";
         $connection->query($query);
         $connection->close();
         header("Location: /myapp/index.php?action=passedValidation");

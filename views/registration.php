@@ -4,15 +4,29 @@
             <h3 id="registrationName">Registration</h3>
         </div>
         <?php
-    
             $errors = [];
             if(array_key_exists('errors', $_GET)){
                 $errors = explode('%', $_GET['errors']);
-                echo "<div class='col-12 alert alert-danger'>";     
+                echo "<div class='col-12 alert alert-danger'>"; 
+                if(in_array('emptyFirstName', $errors)){
+                    echo "<p>Name must contain at least 2 characters!</p>";
+                } else if(in_array('incorrectFirstName', $errors)){
+                    echo "<p>Name can contain only latin or cyrillic letters and - sign!</p>";
+                }
+                if(in_array('emptyLastName', $errors)){
+                    echo "<p>Surname must contain at least 2 characters!</p>";
+                } else if(in_array('incorrectFirstName', $errors)){
+                    echo "<p>Surname can contain only latin or cyrillic letters and - sign!</p>";
+                }
+                if(in_array('emptyBirthDate', $errors)){
+                    echo "<p>Date of birth is obvious field!</p>";
+                } else if(in_array('incorrectBirthDate', $errors)){
+                    echo "<p>Enter the date in dd.mm.yyyy format!</p>";
+                }
                 if(in_array('emptyLogin', $errors)){
                     echo "<p>Login must contain at least 4 characters!</p>";    
                 } else if (in_array('incorrectLogin', $errors)){
-                    echo "Login can contain only latin or cyrillic letters, numbers, - or _ signs!!! ";
+                    echo "<p>Login can contain only latin or cyrillic letters, numbers, - or _ signs!!!</p>";
                 }
                 if(in_array('emptyPassword', $errors)){
                     echo "<p>Password must contain at least 7 characters!</p>";
@@ -37,6 +51,25 @@
         ?>
         <div class="col-12 col-md-9">
             <form method="post" action="index.php?action=validation">
+                <div class="form-group row">
+                    <label for="firstName" class="col-md-2 col-form-label">First Name</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lastName" class="col-md-2 col-form-label">Last Name</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="birthDate" class="col-md-2 col-form-label">Date of Birth</label>
+                    <div class="col-md-10">
+                        <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Date of Birth">
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label for="login" class="col-md-2 col-form-label">Login</label>
                     <div class="col-md-10">

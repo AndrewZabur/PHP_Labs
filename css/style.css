@@ -41,6 +41,10 @@
     color: grey;
 } 
 
+#new-password, #old-password, #new-confirm{
+    border-color: blue;
+}
+
 #registr :hover{
     text-decoration: none; 
     color: white;                         

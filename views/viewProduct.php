@@ -26,7 +26,7 @@
                     </dl>
                 </div>
             </div>
-            <a href="index.php?action=shop" class="btn btn-inverse mt-4">Back to Shop</a>
+            <a href="index.php?action=shop" class="btn btn-inverse mt-4"><i class="fa fa-arrow-left"></i> Back to Shop</a>
         </div>
     </div>
 </div>

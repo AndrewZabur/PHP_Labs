@@ -30,10 +30,10 @@
         require_once("configuration/dbConfig.php");
         $isAdmin = $_SESSION['isAdmin'] == 1 ? 1 : 0; 
         $user = $_SESSION['id'];
-        $size = $_POST['size']; 
-        $model = $_POST['model'];
-        $producer =  $_POST['producer'];
-        $price = $_POST['price'];
+        $size = $connection->real_escape_string($_POST['size']); 
+        $model = $connection->real_escape_string($_POST['model']);
+        $producer = $connection->real_escape_string($_POST['producer']);
+        $price = $connection->real_escape_string($_POST['price']);
         
         $query = "INSERT INTO shop_goods (visible, user_id, size,  model, producer_firm, price) VALUES 
         ('$isAdmin', '$user', '$size', '$model', '$producer', '$price')";

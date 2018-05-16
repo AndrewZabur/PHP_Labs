@@ -1,4 +1,7 @@
 <?php
+    if(!$_SESSION['isAdmin']){
+        header("Location: /myapp/index.php?action=notAdmin");
+    }
     require_once('configuration/dbConfig.php');
     $id = (int)$_GET['id'];
     $sql = 'SELECT * FROM shop_goods WHERE goods_id = ' . $id .';';

@@ -30,12 +30,12 @@
         
         if($errors == ""){
             require_once("configuration/dbConfig.php");
-            $visible = mysqli_real_escape_string($connection ,$_POST['visible']) ; 
+            $visible = $connection->real_escape_string($_POST['visible']) ; 
             $user = $_SESSION['id'];
-            $size = mysqli_real_escape_string($connection, $_POST['new-size']); 
-            $model = mysqli_real_escape_string($connection, $_POST['new-model']);
-            $producer = mysqli_real_escape_string($connection, $_POST['new-producer']);
-            $price = mysqli_real_escape_string($connection, $_POST['new-price']);
+            $size = $connection->real_escape_string($_POST['new-size']); 
+            $model = $connection->real_escape_string($_POST['new-model']);
+            $producer = $connection->real_escape_string($_POST['new-producer']);
+            $price = $connection->real_escape_string($_POST['new-price']);
             
             $query = "UPDATE shop_goods SET visible='$visible', user_id='$user', size='$size', model='$model', producer_firm='$producer', price='$price' 
             WHERE goods_id = '$id';" ;

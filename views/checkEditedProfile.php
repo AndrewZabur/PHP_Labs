@@ -71,15 +71,15 @@
         }
 
         if($errors == ""){
-            $name = mysqli_real_escape_string($connection ,$_POST['new-firstName']); 
-            $surname = mysqli_real_escape_string($connection ,$_POST['new-lastName']);
-            $birthDate = mysqli_real_escape_string($connection, $_POST['new-birthDate']); 
-            $login = mysqli_real_escape_string($connection, $_POST['new-login']);
-            $email = mysqli_real_escape_string($connection, $_POST['new-email']);
-            $skype = mysqli_real_escape_string($connection, $_POST['new-skype']);
+            $name = $connection->real_escape_string($_POST['new-firstName']); 
+            $surname = $connection->real_escape_string($_POST['new-lastName']);
+            $birthDate = $connection->real_escape_string($_POST['new-birthDate']); 
+            $login = $connection->real_escape_string($_POST['new-login']);
+            $email = $connection->real_escape_string($_POST['new-email']);
+            $skype = $connection->real_escape_string($_POST['new-skype']);
             $updateQuery = "";
             if(($_POST['old-password'] != "") and ($newPassword != "") and $flag){
-                $password = password_hash( $newPassword, PASSWORD_BCRYPT);
+                $password = password_hash($newPassword, PASSWORD_BCRYPT);
                 $updateQuery = "UPDATE users SET firstName='$name', lastName='$surname', birthDate='$birthDate',
                 userName='$login', email='$email', skype='$skype', cryptedPassword='$password' WHERE user_id = '$id';" ;
             } else{
